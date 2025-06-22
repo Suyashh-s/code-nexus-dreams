@@ -26,7 +26,7 @@ const CinematicAbout: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: "easeOut"
       }
     }
   };
@@ -38,7 +38,7 @@ const CinematicAbout: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 1,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: "easeOut"
       }
     }
   };
@@ -133,17 +133,7 @@ const CinematicAbout: React.FC = () => {
           >
             <motion.div 
               className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6"
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.8,
-                    ease: [0.6, -0.05, 0.01, 0.99]
-                  }
-                }
-              }}
+              variants={itemVariants}
             >
               <h4 className="text-xl font-semibold text-cyan-400 mb-4">Mission Statement</h4>
               <p className="text-gray-300 leading-relaxed">
@@ -153,17 +143,7 @@ const CinematicAbout: React.FC = () => {
             
             <motion.p 
               className="text-lg text-gray-300 leading-relaxed"
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.8,
-                    ease: [0.6, -0.05, 0.01, 0.99]
-                  }
-                }
-              }}
+              variants={itemVariants}
             >
               Passionate tech entrepreneur skilled in <span className="text-cyan-400 font-medium">Full Stack Development</span>, 
               <span className="text-purple-400 font-medium"> AI/ML</span>, 
@@ -174,17 +154,7 @@ const CinematicAbout: React.FC = () => {
             
             <motion.p 
               className="text-lg text-gray-300 leading-relaxed"
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.8,
-                    ease: [0.6, -0.05, 0.01, 0.99]
-                  }
-                }
-              }}
+              variants={itemVariants}
             >
               As a <span className="text-cyan-400 font-semibold">Smart India Hackathon 2024 Winner</span> and 
               multi-hackathon finalist, I consistently deliver high-impact projects under pressure. 
@@ -202,17 +172,7 @@ const CinematicAbout: React.FC = () => {
             <motion.div
               key={index}
               className="bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 text-center group hover:bg-gradient-to-br hover:from-cyan-500/10 hover:to-purple-600/10 hover:border-cyan-400/30 transition-all duration-300"
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.8,
-                    ease: [0.6, -0.05, 0.01, 0.99]
-                  }
-                }
-              }}
+              variants={itemVariants}
               whileHover={{ 
                 scale: 1.05,
                 transition: { duration: 0.3 }
