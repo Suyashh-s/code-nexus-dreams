@@ -125,6 +125,18 @@
     animation: particle-float 8s linear infinite;
   }
 
+  /* Modern Project Styles */
+  .noise-texture {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+    animation: noise-move 20s linear infinite;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
+
   /* 3D Utilities */
   .perspective-2000 {
     perspective: 2000px;
@@ -176,6 +188,14 @@
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+}
+
+@keyframes noise-move {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 5px); }
+  50% { transform: translate(5px, -5px); }
+  75% { transform: translate(-5px, -5px); }
+  100% { transform: translate(0, 0); }
 }
 
 @keyframes glow-pulse {

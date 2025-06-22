@@ -4,7 +4,7 @@ import CinematicNavbar from '../components/CinematicNavbar';
 import CinematicHero from '../components/CinematicHero';
 import CinematicAbout from '../components/CinematicAbout';
 import CinematicSkills from '../components/CinematicSkills';
-import LayeredProjects from '../components/LayeredProjects';
+import ModernProjects from '../components/ModernProjects';
 import ThreeDBookVisionVault from '../components/ThreeDBookVisionVault';
 import Achievements from '../components/Achievements';
 import CinematicContact from '../components/CinematicContact';
@@ -45,7 +45,7 @@ const Index: React.FC = () => {
           <CinematicSkills />
         </section>
         <section id="projects">
-          <LayeredProjects />
+          <ModernProjects />
         </section>
         <ThreeDBookVisionVault />
         <Achievements />

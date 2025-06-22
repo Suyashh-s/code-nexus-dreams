@@ -22,7 +22,7 @@ const CinematicAbout: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.25, 0.4, 0.55, 1.4]
       }
     }
   };
@@ -34,7 +34,7 @@ const CinematicAbout: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: [0.25, 0.4, 0.55, 1.4]
       }
     }
   };
