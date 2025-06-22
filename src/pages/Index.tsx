@@ -1,11 +1,11 @@
-
 import React, { useEffect } from 'react';
 import CinematicNavbar from '../components/CinematicNavbar';
 import CinematicHero from '../components/CinematicHero';
 import CinematicAbout from '../components/CinematicAbout';
 import CinematicSkills from '../components/CinematicSkills';
 import CinematicProjects from '../components/CinematicProjects';
-import VisionVault from '../components/VisionVault';
+import BookDesignProjects from '../components/BookDesignProjects';
+import BookDesignVisionVault from '../components/BookDesignVisionVault';
 import Achievements from '../components/Achievements';
 import CinematicContact from '../components/CinematicContact';
 import Footer from '../components/Footer';
@@ -45,9 +45,9 @@ const Index: React.FC = () => {
           <CinematicSkills />
         </section>
         <section id="projects">
-          <CinematicProjects />
+          <BookDesignProjects />
         </section>
-        <VisionVault />
+        <BookDesignVisionVault />
         <Achievements />
         <section id="contact">
           <CinematicContact />
