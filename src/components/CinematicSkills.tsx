@@ -66,14 +66,14 @@ const CinematicSkills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="section-container relative">
-      {/* Background Elements */}
+    <section id="skills" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      {/* Background Elements - Responsive */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="floating-element top-20 right-20">
-          <div className="w-64 h-64 bg-gradient-to-br from-cyan-400/5 to-purple-400/5 rounded-full blur-3xl" />
+        <div className="floating-element top-16 sm:top-20 right-4 sm:right-10 md:right-20">
+          <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-br from-cyan-400/5 to-purple-400/5 rounded-full blur-3xl" />
         </div>
-        <div className="floating-element bottom-20 left-20">
-          <div className="w-48 h-48 bg-gradient-to-br from-blue-400/5 to-cyan-400/5 rounded-full blur-2xl" />
+        <div className="floating-element bottom-16 sm:bottom-20 left-4 sm:left-10 md:left-20">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 bg-gradient-to-br from-blue-400/5 to-cyan-400/5 rounded-full blur-2xl" />
         </div>
       </div>
 
@@ -82,32 +82,34 @@ const CinematicSkills: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="section-title mb-6">Technical Arsenal</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            Technical Arsenal
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto px-2 leading-relaxed">
             Mastering cutting-edge technologies to build scalable, innovative solutions 
             that drive business growth and user engagement.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
-              className="cinematic-card p-8"
+              className="cinematic-card p-4 sm:p-6 md:p-8"
               variants={itemVariants}
               whileHover={{ 
                 scale: 1.02,
                 transition: { duration: 0.2 }
               }}
             >
-              <h3 className="text-2xl font-semibold text-white mb-6 glow-text">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-4 sm:mb-6 glow-text">
                 {category.title}
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
@@ -120,15 +122,15 @@ const CinematicSkills: React.FC = () => {
                     }}
                     viewport={{ once: true }}
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{skill.icon}</span>
-                        <span className="text-white font-medium">{skill.name}</span>
+                    <div className="flex items-center justify-between mb-2 sm:mb-3">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="text-lg sm:text-xl md:text-2xl">{skill.icon}</span>
+                        <span className="text-white font-medium text-sm sm:text-base">{skill.name}</span>
                       </div>
-                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
+                      <span className="text-cyan-400 font-semibold text-sm sm:text-base">{skill.level}%</span>
                     </div>
                     
-                    <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
+                    <div className="w-full bg-gray-700/50 rounded-full h-1.5 sm:h-2 overflow-hidden">
                       <motion.div
                         className="h-full bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"
                         initial={{ width: 0 }}
@@ -148,16 +150,16 @@ const CinematicSkills: React.FC = () => {
           ))}
         </div>
 
-        {/* Floating Tech Icons */}
-        <div className="mt-16 relative">
+        {/* Floating Tech Icons - Responsive */}
+        <div className="mt-12 sm:mt-16 relative">
           <motion.div 
-            className="flex flex-wrap justify-center gap-8 opacity-30"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 opacity-30"
             variants={itemVariants}
           >
             {['⚛️', '🔷', '🐍', '🧠', '🐳', '☁️', '🎨', '⚙️'].map((icon, index) => (
               <motion.div
                 key={index}
-                className="text-6xl hover:scale-125 transition-transform duration-300 cursor-pointer"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl hover:scale-125 transition-transform duration-300 cursor-pointer"
                 animate={{
                   y: [0, -10, 0],
                   rotate: [0, 5, -5, 0]

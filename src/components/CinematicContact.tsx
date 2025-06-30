@@ -49,7 +49,7 @@ const CinematicContact: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: "easeOut"
       }
     }
   };
@@ -61,27 +61,27 @@ const CinematicContact: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: "easeOut"
       }
     }
   };
 
   const socialLinks = [
-    { icon: <Github size={24} />, href: "#", label: "GitHub" },
-    { icon: <Linkedin size={24} />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter size={24} />, href: "#", label: "Twitter" },
-    { icon: <Mail size={24} />, href: "mailto:hello@example.com", label: "Email" }
+    { icon: <Github size={20} />, href: "https://github.com/Suyashh-s", label: "GitHub" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/suyash-sawant-9a3898317/", label: "LinkedIn" },
+    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+    { icon: <Mail size={20} />, href: "mailto:suyashsawant9114@gmail.com", label: "Email" }
   ];
 
   return (
-    <section id="contact" className="section-container relative">
-      {/* Background Elements */}
+    <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      {/* Background Elements - Responsive */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="floating-element top-1/4 left-10">
-          <div className="w-40 h-40 bg-gradient-to-br from-cyan-400/5 to-purple-400/5 rounded-full blur-2xl" />
+        <div className="floating-element top-1/4 left-2 sm:left-6 md:left-10">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-gradient-to-br from-cyan-400/5 to-purple-400/5 rounded-full blur-2xl" />
         </div>
-        <div className="floating-element bottom-1/4 right-10">
-          <div className="w-32 h-32 bg-gradient-to-br from-blue-400/5 to-cyan-400/5 rounded-full blur-2xl" />
+        <div className="floating-element bottom-1/4 right-2 sm:right-6 md:right-10">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-400/5 to-cyan-400/5 rounded-full blur-2xl" />
         </div>
       </div>
 
@@ -90,57 +90,59 @@ const CinematicContact: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Header */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="section-title mb-6">Let's Build Something Amazing</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        {/* Header - Responsive */}
+        <motion.div className="text-center mb-8 sm:mb-12 md:mb-16" variants={itemVariants}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            Let's Build Something Amazing
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-2">
             Have a project in mind? Looking for a technical co-founder? 
             Or just want to connect? I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Info */}
-          <motion.div className="space-y-8" variants={itemVariants}>
-            <div className="cinematic-card p-8">
-              <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
+          {/* Contact Info - Responsive */}
+          <motion.div className="space-y-6 sm:space-y-8" variants={itemVariants}>
+            <div className="cinematic-card p-4 sm:p-6 md:p-8">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-4 sm:mb-6">Get in Touch</h3>
               
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-cyan-400/10 rounded-lg">
-                    <Mail className="text-cyan-400" size={20} />
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="p-2 sm:p-3 bg-cyan-400/10 rounded-lg flex-shrink-0">
+                    <Mail className="text-cyan-400" size={16} />
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white">hello@example.com</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-gray-400 text-xs sm:text-sm">Email</p>
+                    <p className="text-white text-sm sm:text-base break-all">suyashsawant9114@gmail.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-purple-400/10 rounded-lg">
-                    <MapPin className="text-purple-400" size={20} />
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="p-2 sm:p-3 bg-purple-400/10 rounded-lg flex-shrink-0">
+                    <MapPin className="text-purple-400" size={16} />
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">San Francisco, CA</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-gray-400 text-xs sm:text-sm">Location</p>
+                    <p className="text-white text-sm sm:text-base">Mumbai, India</p>
                   </div>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="pt-8 border-t border-gray-700 mt-8">
-                <p className="text-gray-400 text-sm mb-4">Follow me on</p>
-                <div className="flex gap-4">
+              {/* Social Links - Responsive */}
+              <div className="pt-6 sm:pt-8 border-t border-gray-700 mt-6 sm:mt-8">
+                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">Follow me on</p>
+                <div className="flex gap-3 sm:gap-4 flex-wrap">
                   {socialLinks.map((link, index) => (
                     <motion.a
                       key={index}
                       href={link.href}
-                      className="p-3 bg-gray-800/50 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
+                      className="p-2 sm:p-3 bg-gray-800/50 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      target="_blank"
+                      target={link.href.startsWith('#') ? '_self' : '_blank'}
                       rel="noopener noreferrer"
                     >
                       {link.icon}
@@ -151,11 +153,11 @@ const CinematicContact: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Responsive */}
           <motion.div variants={formVariants}>
-            <form onSubmit={handleSubmit} className="cinematic-card p-8 space-y-6">
+            <form onSubmit={handleSubmit} className="cinematic-card p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Name
                 </label>
                 <input
@@ -165,13 +167,13 @@ const CinematicContact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors text-sm sm:text-base"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
@@ -181,13 +183,13 @@ const CinematicContact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors text-sm sm:text-base"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -196,8 +198,8 @@ const CinematicContact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors resize-none"
+                  rows={5}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors resize-none text-sm sm:text-base"
                   placeholder="Tell me about your project or idea..."
                 />
               </div>
@@ -205,18 +207,18 @@ const CinematicContact: React.FC = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="glow-button w-full flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="glow-button w-full flex items-center justify-center gap-2 sm:gap-3 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] text-sm sm:text-base"
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     Sending...
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
+                    <Send size={16} />
                     Send Message
                   </>
                 )}
