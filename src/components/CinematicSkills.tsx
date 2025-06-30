@@ -21,7 +21,7 @@ const CinematicSkills: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        ease: "easeOut"
       }
     }
   };
@@ -138,7 +138,7 @@ const CinematicSkills: React.FC = () => {
                         transition={{
                           duration: 1.5,
                           delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                          ease: [0.22, 1, 0.36, 1]
+                          ease: "easeOut"
                         }}
                         viewport={{ once: true }}
                       />
@@ -168,7 +168,7 @@ const CinematicSkills: React.FC = () => {
                   duration: 4,
                   delay: index * 0.2,
                   repeat: Infinity,
-                  ease: [0.22, 1, 0.36, 1]
+                  ease: "easeInOut"
                 }}
                 whileHover={{
                   scale: 1.2,
