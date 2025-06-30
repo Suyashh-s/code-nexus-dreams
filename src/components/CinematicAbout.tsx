@@ -22,7 +22,7 @@ const CinematicAbout: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.4, 0.55, 1.4]
+        ease: "easeOut"
       }
     }
   };
@@ -34,42 +34,42 @@ const CinematicAbout: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.4, 0.55, 1.4]
+        ease: "easeOut"
       }
     }
   };
 
   const achievements = [
     {
-      icon: <Code className="w-8 h-8" />,
+      icon: <Code className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Full Stack Expertise",
       description: "5+ years building scalable web applications with modern tech stacks"
     },
     {
-      icon: <Lightbulb className="w-8 h-8" />,
+      icon: <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Innovation Leader",
       description: "Founded multiple tech startups, shipped products used by 10K+ users"
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Team Builder",
       description: "Led engineering teams and mentored developers across various projects"
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Problem Solver",
       description: "Specialized in AI/ML solutions, computer vision, and business automation"
     }
   ];
 
   return (
-    <section id="about" className="section-container relative">
+    <section id="about" className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
       {/* Floating Elements */}
-      <div className="floating-element top-20 left-10">
-        <div className="w-32 h-32 bg-gradient-to-br from-cyan-400/10 to-purple-400/10 rounded-full blur-xl" />
+      <div className="floating-element top-10 sm:top-20 left-4 sm:left-10">
+        <div className="w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-br from-cyan-400/10 to-purple-400/10 rounded-full blur-xl" />
       </div>
-      <div className="floating-element bottom-20 right-10">
-        <div className="w-24 h-24 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-xl" />
+      <div className="floating-element bottom-10 sm:bottom-20 right-4 sm:right-10">
+        <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-xl" />
       </div>
 
       <motion.div 
@@ -79,19 +79,19 @@ const CinematicAbout: React.FC = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Content Side */}
-          <motion.div variants={imageVariants} className="space-y-8">
-            <div className="space-y-6">
+          <motion.div variants={imageVariants} className="space-y-6 sm:space-y-8 order-2 lg:order-1">
+            <div className="space-y-4 sm:space-y-6">
               <motion.h2 
-                className="section-title text-left"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-left text-white mb-6 sm:mb-8 lg:mb-12"
                 variants={itemVariants}
               >
                 Building the Future
               </motion.h2>
               
               <motion.p 
-                className="text-xl text-gray-300 leading-relaxed"
+                className="text-lg sm:text-xl text-gray-300 leading-relaxed"
                 variants={itemVariants}
               >
                 I'm a startup founder and full-stack engineer passionate about creating innovative solutions 
@@ -100,7 +100,7 @@ const CinematicAbout: React.FC = () => {
               </motion.p>
 
               <motion.p 
-                className="text-lg text-gray-400 leading-relaxed"
+                className="text-base sm:text-lg text-gray-400 leading-relaxed"
                 variants={itemVariants}
               >
                 With expertise spanning from computer vision to business automation, I combine technical 
@@ -110,44 +110,44 @@ const CinematicAbout: React.FC = () => {
 
             {/* Stats */}
             <motion.div 
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-2 gap-4 sm:gap-6"
               variants={itemVariants}
             >
-              <div className="cinematic-card p-6 text-center">
-                <div className="text-3xl font-bold glow-text mb-2">10K+</div>
-                <div className="text-gray-400">Users Impacted</div>
+              <div className="cinematic-card p-4 sm:p-6 text-center">
+                <div className="text-2xl sm:text-3xl font-bold glow-text mb-2">10K+</div>
+                <div className="text-sm sm:text-base text-gray-400">Users Impacted</div>
               </div>
-              <div className="cinematic-card p-6 text-center">
-                <div className="text-3xl font-bold glow-text mb-2">5+</div>
-                <div className="text-gray-400">Products Shipped</div>
+              <div className="cinematic-card p-4 sm:p-6 text-center">
+                <div className="text-2xl sm:text-3xl font-bold glow-text mb-2">5+</div>
+                <div className="text-sm sm:text-base text-gray-400">Products Shipped</div>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Achievements Grid */}
           <motion.div 
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6 order-1 lg:order-2"
             variants={itemVariants}
           >
             {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
-                className="cinematic-card p-6 group hover:scale-105 transition-all duration-300"
+                className="cinematic-card p-4 sm:p-6 group hover:scale-105 transition-all duration-300"
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.02,
                   transition: { duration: 0.2 }
                 }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="text-cyan-400 group-hover:text-purple-400 transition-colors duration-300">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="text-cyan-400 group-hover:text-purple-400 transition-colors duration-300 flex-shrink-0">
                     {achievement.icon}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">
                       {achievement.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                       {achievement.description}
                     </p>
                   </div>

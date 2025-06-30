@@ -90,13 +90,13 @@
 
 @layer components {
   .cinematic-card {
-    @apply bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-3xl shadow-2xl 
+    @apply bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl shadow-2xl 
     hover:shadow-cyan-400/10 transition-all duration-500 hover:border-cyan-400/20;
   }
   
   .glow-button {
     @apply relative overflow-hidden bg-gradient-to-r from-cyan-500 to-purple-600 
-    text-white font-medium rounded-full px-8 py-4 
+    text-white font-medium rounded-full px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base
     transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/25
     before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent 
     before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700;
@@ -108,11 +108,11 @@
   }
   
   .section-container {
-    @apply py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto;
+    @apply py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
   }
   
   .section-title {
-    @apply text-4xl md:text-6xl font-bold mb-12 text-white;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 sm:mb-10 md:mb-12 text-white;
   }
   
   .floating-element {
@@ -129,8 +129,14 @@
   .noise-texture {
     background-image: 
       radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
-    background-size: 20px 20px;
+    background-size: 15px 15px;
     animation: noise-move 20s linear infinite;
+  }
+
+  @media (min-width: 640px) {
+    .noise-texture {
+      background-size: 20px 20px;
+    }
   }
 
   .bg-gradient-radial {
@@ -139,7 +145,13 @@
 
   /* 3D Utilities */
   .perspective-2000 {
-    perspective: 2000px;
+    perspective: 1500px;
+  }
+
+  @media (min-width: 768px) {
+    .perspective-2000 {
+      perspective: 2000px;
+    }
   }
   
   .preserve-3d {
@@ -157,12 +169,27 @@
   .rotate-y--10 {
     transform: rotateY(-10deg);
   }
+
+  /* Responsive project cards */
+  .project-card {
+    @apply w-full sm:w-80 md:w-96 lg:w-[420px] h-64 sm:h-72 md:h-80 lg:h-96;
+  }
+
+  .project-video {
+    @apply w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover rounded-lg sm:rounded-xl;
+  }
 }
 
 /* 3D Transform Utilities */
 @layer utilities {
   .perspective-2000 {
-    perspective: 2000px;
+    perspective: 1500px;
+  }
+
+  @media (min-width: 768px) {
+    .perspective-2000 {
+      perspective: 2000px;
+    }
   }
   
   .preserve-3d {
@@ -180,27 +207,60 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+@media (min-width: 640px) {
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
 }
 
 @keyframes particle-float {
   0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+  100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+}
+
+@media (min-width: 640px) {
+  @keyframes particle-float {
+    0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+  }
 }
 
 @keyframes noise-move {
   0% { transform: translate(0, 0); }
-  25% { transform: translate(-5px, 5px); }
-  50% { transform: translate(5px, -5px); }
-  75% { transform: translate(-5px, -5px); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, -2px); }
   100% { transform: translate(0, 0); }
 }
 
+@media (min-width: 640px) {
+  @keyframes noise-move {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-5px, 5px); }
+    50% { transform: translate(5px, -5px); }
+    75% { transform: translate(-5px, -5px); }
+    100% { transform: translate(0, 0); }
+  }
+}
+
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.6); }
+  0%, 100% { box-shadow: 0 0 10px rgba(34, 211, 238, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.6); }
+}
+
+@media (min-width: 640px) {
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.6); }
+  }
 }
 
 .glow-pulse {
@@ -213,7 +273,18 @@
     transform: rotateX(5deg) rotateY(-10deg) translateY(0px);
   }
   50% { 
-    transform: rotateX(3deg) rotateY(-8deg) translateY(-5px);
+    transform: rotateX(3deg) rotateY(-8deg) translateY(-3px);
+  }
+}
+
+@media (min-width: 640px) {
+  @keyframes book-float {
+    0%, 100% { 
+      transform: rotateX(5deg) rotateY(-10deg) translateY(0px);
+    }
+    50% { 
+      transform: rotateX(3deg) rotateY(-8deg) translateY(-5px);
+    }
   }
 }
 
@@ -233,7 +304,13 @@
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -247,4 +324,31 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #0891b2, #9333ea);
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  .section-title {
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+}
+
+/* Improved mobile touch targets */
+@media (max-width: 640px) {
+  .glow-button, button, a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
