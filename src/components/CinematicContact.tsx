@@ -49,7 +49,7 @@ const CinematicContact: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
@@ -61,7 +61,7 @@ const CinematicContact: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };

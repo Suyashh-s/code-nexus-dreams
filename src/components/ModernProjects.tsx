@@ -1,101 +1,28 @@
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const ModernProjects: React.FC = () => {
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  const projects = [
-    {
-      id: 1,
-      title: "VisionVault",
-      description: "Advanced AI-powered computer vision platform for real-time object detection and analysis",
-      tags: ["AI/ML", "Computer Vision", "React", "Python"],
-      video: "/videos/vyom.mp4",
-      github: "#",
-      live: "#",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "InfHub Analytics",
-      description: "Comprehensive data analytics dashboard with real-time insights and predictive modeling",
-      tags: ["Data Science", "Dashboard", "React", "Node.js"],
-      video: "/videos/infhub.mp4",
-      github: "#",
-      live: "#",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Raksha Security",
-      description: "Next-generation cybersecurity platform with threat detection and automated response",
-      tags: ["Cybersecurity", "AI", "React", "Python"],
-      video: "/videos/raksha.mp4",
-      github: "#",
-      live: "#",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "Lokyatri Travel",
-      description: "Smart travel planning platform with AI-powered recommendations and booking system",
-      tags: ["Travel Tech", "AI", "React", "Node.js"],
-      video: "/videos/lokyatri.mp4",
-      github: "#",
-      live: "#",
-      featured: false
-    }
-  ];
-
-  useEffect(() => {
-    // Auto-play videos when they come into view
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target as HTMLVideoElement;
-          if (entry.isIntersecting) {
-            video.play().catch(console.error);
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    videoRefs.current.forEach((video) => {
-      if (video) observer.observe(video);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         duration: 0.8,
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
 
-  const cardVariants = {
-    hidden: { 
-      y: 60, 
-      opacity: 0,
-      scale: 0.8
-    },
+  const itemVariants = {
+    hidden: { y: 60, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      scale: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
@@ -106,8 +33,8 @@ const ModernProjects: React.FC = () => {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
@@ -118,21 +45,64 @@ const ModernProjects: React.FC = () => {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        delay: 0.2
+        duration: 0.8,
+        delay: 0.2,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
 
+  const projects = [
+    {
+      id: 1,
+      title: "InfHub - College Social Platform",
+      description: "Social media platform for college students with real-time messaging, event management, and academic resources sharing.",
+      tags: ["React", "Node.js", "MongoDB", "Socket.io"],
+      videoSrc: "/videos/infhub.mp4",
+      githubUrl: "https://github.com/Suyashh-s",
+      liveUrl: "#",
+      gradient: "from-cyan-500/20 to-blue-500/20"
+    },
+    {
+      id: 2,
+      title: "Lokyatri - Travel Companion",
+      description: "AI-powered travel planning app with personalized itineraries, budget tracking, and local recommendations.",
+      tags: ["React Native", "Python", "FastAPI", "OpenAI"],
+      videoSrc: "/videos/lokyatri.mp4",
+      githubUrl: "https://github.com/Suyashh-s",
+      liveUrl: "#",
+      gradient: "from-purple-500/20 to-pink-500/20"
+    },
+    {
+      id: 3,
+      title: "Raksha - Security System",
+      description: "Computer vision-based security monitoring system with real-time threat detection and alert notifications.",
+      tags: ["Python", "OpenCV", "YOLO", "Flask"],
+      videoSrc: "/videos/raksha.mp4",
+      githubUrl: "https://github.com/Suyashh-s",
+      liveUrl: "#",
+      gradient: "from-green-500/20 to-teal-500/20"
+    },
+    {
+      id: 4,
+      title: "Vyom - Space Explorer",
+      description: "Interactive space exploration platform with 3D visualizations, real-time space data, and educational content.",
+      tags: ["Three.js", "React", "WebGL", "NASA API"],
+      videoSrc: "/videos/vyom.mp4",
+      githubUrl: "https://github.com/Suyashh-s",
+      liveUrl: "#",
+      gradient: "from-orange-500/20 to-red-500/20"
+    }
+  ];
+
   return (
-    <section id="projects" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto relative">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="noise-texture absolute inset-0 opacity-5" />
-        <div className="absolute top-1/4 left-4 sm:left-8 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-radial from-cyan-400/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-4 sm:right-8 w-24 h-24 sm:w-40 sm:h-40 bg-gradient-radial from-purple-400/10 to-transparent rounded-full blur-2xl" />
-      </div>
+      <div className="absolute inset-0 noise-texture opacity-5" />
+      
+      {/* Floating Orbs - Responsive */}
+      <div className="absolute top-16 sm:top-20 left-4 sm:left-10 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-radial from-cyan-400/10 to-transparent rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-16 sm:bottom-20 right-4 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 bg-gradient-radial from-purple-400/10 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       <motion.div
         variants={containerVariants}
@@ -141,163 +111,160 @@ const ModernProjects: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="relative z-10"
       >
-        {/* Header */}
-        <motion.div className="text-center mb-12 sm:mb-16 md:mb-20" variants={cardVariants}>
+        {/* Header - Responsive */}
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 font-mono leading-tight"
             variants={titleVariants}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
           >
-            <span className="text-cyan-400">&lt;</span>
             Featured Projects
-            <span className="text-purple-400">/&gt;</span>
           </motion.h2>
           <motion.p 
-            className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed px-2"
             variants={tagVariants}
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-2"
           >
-            Innovative solutions built with cutting-edge technologies. 
-            Each project represents a unique challenge solved with precision and creativity.
+            Innovative solutions built with cutting-edge technologies, 
+            showcasing expertise in full-stack development and AI integration.
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Projects Grid - Responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              variants={cardVariants}
-              className={`group relative ${
-                project.featured 
-                  ? 'md:col-span-2 lg:col-span-1' 
-                  : ''
-              }`}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              variants={itemVariants}
+              className="group relative"
             >
-              {/* Card Container */}
-              <div className="bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-cyan-400/10 transition-all duration-500 hover:border-cyan-400/30">
+              {/* Project Card */}
+              <motion.div 
+                className="relative bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-cyan-400/10 transition-all duration-500 hover:border-cyan-400/20"
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 
                 {/* Video Container - Responsive */}
                 <div className="relative aspect-video overflow-hidden">
                   <video
-                    ref={(el) => {
-                      if (el) videoRefs.current[index] = el;
-                    }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    muted
+                    autoPlay
                     loop
+                    muted
                     playsInline
-                    onError={(e) => {
-                      console.error(`Error loading video for ${project.title}:`, e);
-                      e.currentTarget.style.display = 'none';
-                    }}
                   >
-                    <source src={project.video} type="video/mp4" />
+                    <source src={project.videoSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
                   
-                  {/* Play Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-cyan-400/20 backdrop-blur-sm rounded-full p-3 sm:p-4">
-                      <Play size={20} className="text-cyan-400" />
-                    </div>
+                  {/* Action Buttons - Responsive */}
+                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex gap-2 sm:gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-[-10px] group-hover:translate-y-0">
+                    <motion.a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 sm:p-3 bg-black/50 backdrop-blur-sm rounded-full border border-gray-600/50 hover:border-cyan-400/50 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16} className="text-white" />
+                    </motion.a>
+                    <motion.a
+                      href={project.liveUrl}
+                      className="p-2 sm:p-3 bg-black/50 backdrop-blur-sm rounded-full border border-gray-600/50 hover:border-cyan-400/50 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16} className="text-white" />
+                    </motion.a>
                   </div>
-
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
-                      <span className="bg-gradient-to-r from-cyan-400 to-purple-400 text-black text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-full">
-                        FEATURED
-                      </span>
-                    </div>
-                  )}
                 </div>
 
-                {/* Content */}
-                <div className="p-4 sm:p-6 md:p-8">
-                  {/* Title */}
+                {/* Content - Responsive */}
+                <div className="relative p-4 sm:p-6 md:p-8">
                   <motion.h3 
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 font-mono group-hover:text-cyan-400 transition-colors duration-300"
                     variants={titleVariants}
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-cyan-400 transition-colors duration-300"
                   >
                     {project.title}
                   </motion.h3>
-
-                  {/* Description */}
-                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed">
+                  
+                  <motion.p 
+                    variants={itemVariants}
+                    className="text-xs sm:text-sm md:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed"
+                  >
                     {project.description}
-                  </p>
-
+                  </motion.p>
+                  
                   {/* Tags - Responsive */}
                   <motion.div 
-                    className="flex flex-wrap gap-2 mb-4 sm:mb-6"
                     variants={tagVariants}
+                    className="flex flex-wrap gap-2 sm:gap-3"
                   >
                     {project.tags.map((tag, tagIndex) => (
-                      <span
+                      <motion.span
                         key={tagIndex}
-                        className="bg-gray-800/50 text-cyan-400 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-mono border border-gray-700/50 hover:border-cyan-400/30 transition-colors duration-300"
+                        className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gray-800/50 border border-gray-600/30 rounded-full text-xs sm:text-sm text-cyan-400 font-medium hover:border-cyan-400/50 transition-colors cursor-default"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{
+                          duration: 0.3,
+                          delay: tagIndex * 0.1
+                        }}
+                        viewport={{ once: true }}
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </motion.div>
-
-                  {/* Action Buttons - Responsive */}
-                  <div className="flex gap-3 sm:gap-4">
-                    <motion.a
-                      href={project.live}
-                      className="flex-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 text-cyan-400 px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 border border-cyan-400/20 hover:border-cyan-400/40 text-xs sm:text-sm min-h-[40px] sm:min-h-[44px]"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={14} />
-                      Live Demo
-                    </motion.a>
-                    <motion.a
-                      href={project.github}
-                      className="flex-1 bg-gray-800/50 hover:bg-gray-800/70 text-gray-300 hover:text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 border border-gray-700/50 hover:border-gray-600/50 text-xs sm:text-sm min-h-[40px] sm:min-h-[44px]"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Github size={14} />
-                      Code
-                    </motion.a>
-                  </div>
                 </div>
-              </div>
 
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/5 to-purple-400/5 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
+                {/* Glow Effect - Responsive */}
+                <div className="absolute inset-0 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gradient-to-r from-cyan-400/0 via-cyan-400/5 to-purple-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              </motion.div>
+
+              {/* Floating Number - Responsive */}
+              <motion.div
+                className="absolute -top-3 sm:-top-4 -left-3 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-full flex items-center justify-center font-bold text-white text-sm sm:text-base md:text-lg shadow-lg group-hover:scale-110 transition-transform duration-300"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                  delay: index * 0.1
+                }}
+                viewport={{ once: true }}
+              >
+                {String(index + 1).padStart(2, '0')}
+              </motion.div>
             </motion.div>
           ))}
         </div>
 
         {/* Bottom CTA - Responsive */}
         <motion.div 
+          variants={itemVariants}
           className="text-center mt-12 sm:mt-16 md:mt-20"
-          variants={cardVariants}
         >
-          <motion.p 
-            className="text-gray-400 mb-6 sm:mb-8 text-sm sm:text-base px-2"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            Want to see more of my work? Check out my GitHub for additional projects and contributions.
-          </motion.p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
+            Interested in seeing more work or discussing a project?
+          </p>
           <motion.a
-            href="https://github.com/Suyashh-s"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-gray-700/25 border border-gray-600/50 hover:border-gray-500/50 text-sm sm:text-base min-h-[44px]"
+            href="#contact"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium rounded-full px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/25 text-sm sm:text-base min-h-[44px]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Github size={18} />
-            View All Projects
+            Let's Connect
+            <ExternalLink size={16} />
           </motion.a>
         </motion.div>
       </motion.div>
